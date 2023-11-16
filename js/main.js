@@ -10,9 +10,14 @@ const $allStoriesList = $("#all-stories-list");
 const $loginForm = $("#login-form");
 const $signupForm = $("#signup-form");
 
+const $submitForm = $("#submit-form");
+// TODO: add $myFavorites
+// TODO: add $myStories
+
 const $navLogin = $("#nav-login");
 const $navUserProfile = $("#nav-user-profile");
 const $navLogOut = $("#nav-logout");
+
 
 /** To make it easier for individual components to show just themselves, this
  * is a useful function that hides pretty much everything on the page. After
@@ -40,7 +45,7 @@ async function start() {
 
 
 
-    // TODO: Check to see what getAndShowStoriesOnStart() returns
+  // TODO: Check to see what getAndShowStoriesOnStart() returns
   await getAndShowStoriesOnStart();
 
 
