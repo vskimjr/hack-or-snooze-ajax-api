@@ -29,9 +29,12 @@ $body.on("click", "#nav-all", navAllStories);
 function showSubmitFormOnNavLinkClick(evt) {
   console.log("showSubmitFormOnNavLinkClick called", evt);
   evt.preventDefault();
-
-
+  $submitForm.show();
 }
+
+$("#nav-submit-story").on("click", showSubmitFormOnNavLinkClick);
+
+
 
 // TODO: Handle the submit button in the submit story form
 

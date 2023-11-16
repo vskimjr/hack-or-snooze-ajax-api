@@ -35,6 +35,7 @@ function generateStoryMarkup(story) {
     `);
 }
 
+
 /** Gets list of stories from server, generates their HTML, and puts on page. */
 
 function putStoriesOnPage() {
@@ -50,3 +51,25 @@ function putStoriesOnPage() {
 
   $allStoriesList.show();
 }
+
+// TODO: Handle the submit button in the submit story form
+
+
+function submitNewStory(evt){
+  console.log("submitNewStory ran! congrats guys")
+  evt.preventDefault();
+
+  const storyAuthor = $('#create-author').val();
+  const storyTitle = $('#create-title').val();
+  const storyURL = $('#create-url').val();
+  const userToken = localStorage.getItem("token");
+
+  console.log("storyAuthor", storyAuthor);
+  console.log("storyTitle", storyTitle);
+  console.log("storyURL", storyURL);
+  console.log("userToken", userToken);
+
+  storyList.addStory(userToken, {storyTitle, storyAuthor, storyURL});
+}
+
+$("#story-submit-button").on("click", submitNewStory);
