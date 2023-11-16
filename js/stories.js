@@ -71,6 +71,10 @@ async function submitNewStory(evt) {
   // using the currentUser global variable from the user.js file
   await storyList.addStory(currentUser, { title, author, url });
 
+  // TODO: put that new story on the page
+  // need to generateStoryMarkup()
+  // need to add to
+
   /* COMMENTED OUT BECAUSE THE FOLLOWING FAILS UNEXPECTEDLY
   const storyAuthor = $('#create-author').val();
   const storyTitle = $('#create-title').val();
