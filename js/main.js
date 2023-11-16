@@ -11,8 +11,8 @@ const $loginForm = $("#login-form");
 const $signupForm = $("#signup-form");
 
 const $submitForm = $("#submit-form");
-// TODO: add $myFavorites
-// TODO: add $myStories
+// ?TODO: add $myFavorites
+// ?TODO: add $myStories
 
 const $navLogin = $("#nav-login");
 const $navUserProfile = $("#nav-user-profile");
