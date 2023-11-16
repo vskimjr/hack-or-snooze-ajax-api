@@ -8,6 +8,7 @@ const BASE_URL = "https://hack-or-snooze-v3.herokuapp.com";
 
 class Story {
 
+
   /** Make instance of Story from data object about story:
    *   - {title, author, url, username, storyId, createdAt}
    */
@@ -24,9 +25,17 @@ class Story {
   /** Parses hostname out of URL and returns it. */
 
   getHostName() {
-    // FIXME: complete this function!
-    return "hostname.com";
+
+    const parsedURL = new URL(this.url);
+
+    return parsedURL;
   }
+
+  // Each story that we are going to create is going to be provided a URL as a
+  // JSON object so that when it grabs the link it sends you to the right place
+
+  // When we submit, we are posting an object (on click, return new story)
+
 }
 
 
@@ -73,7 +82,43 @@ class StoryList {
    * Returns the new Story instance
    */
 
-  async addStory( /* user, newStory */) {
+  async addStory(user, {title, author, url} ) {
+
+    console.log("addStory called");
+
+    const userToken = user.loginToken;
+
+    const response = await fetch(`${BASE_URL}/stories`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        "mode": 'no-cors'
+      },
+      body: JSON.stringify(userToken, {title, author, url}),
+    })
+
+    const storyData = await response.json();
+    console.log("storyData from addstory", storyData);
+
+    const newStory = new Story(storyData);
+
+    return newStory;
+
+
+
+
+
+
+    // fetch and specify a post method on this
+
+
+
+
+    // storyId, title, author, url, username, createdAt
+    // TODO:
+
+
+
     // UNIMPLEMENTED: complete this function!
   }
 }
@@ -84,6 +129,7 @@ class StoryList {
  */
 
 class User {
+
   /** Make user instance from obj of user data and a token:
    *   - {username, name, createdAt, favorites[], ownStories[]}
    *   - token
@@ -109,6 +155,7 @@ class User {
     this.loginToken = token;
   }
 
+  // TODO:
   /** Register new user in API, make User instance & return it.
    *
    * - username: a new username

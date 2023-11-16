@@ -34,8 +34,15 @@ async function start() {
   console.debug("start");
 
   // "Remember logged-in user" and log in, if credentials in localStorage
+
+  // TODO: Check to see what checkForRememberedUser() returns
   await checkForRememberedUser();
+
+
+
+    // TODO: Check to see what getAndShowStoriesOnStart() returns
   await getAndShowStoriesOnStart();
+
 
   // if we got a logged-in user
   if (currentUser) updateUIOnUserLogin();
