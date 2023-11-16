@@ -15,6 +15,34 @@ function navAllStories(evt) {
 
 $body.on("click", "#nav-all", navAllStories);
 
+// TODO: handle submit nav link click
+// create the function
+//  stop the default link behavior
+//  show the submit form
+//
+// add the event listener
+
+/**
+ * Update the DOM to show the #submit-form when clicking the submit link
+ */
+
+function showSubmitFormOnNavLinkClick(evt) {
+  console.log("showSubmitFormOnNavLinkClick called", evt);
+  evt.preventDefault();
+
+
+}
+
+// TODO: Handle the submit button in the submit story form
+
+// TODO: handle favorites link click
+// create the function
+// add the event listener
+
+// TODO: handle my stories link click
+// create the function
+// add the event listener
+
 /** Show login/signup on click on "login" */
 
 function navLoginClick(evt) {
