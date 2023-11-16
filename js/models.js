@@ -98,28 +98,12 @@ class StoryList {
     });
 
     const storyData = await response.json();
+    // TODO: make sure extra stuff in storyData doesn't affect us
     console.log("storyData from addstory", storyData);
 
     const newStory = new Story(storyData);
 
     return newStory;
-
-
-
-
-
-
-    // fetch and specify a post method on this
-
-
-
-
-    // storyId, title, author, url, username, createdAt
-    // TODO:
-
-
-
-    // UNIMPLEMENTED: complete this function!
   }
 }
 
