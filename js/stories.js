@@ -55,21 +55,29 @@ function putStoriesOnPage() {
 // TODO: Handle the submit button in the submit story form
 
 
-function submitNewStory(evt){
-  console.log("submitNewStory ran! congrats guys")
+async function submitNewStory(evt) {
+  console.log("submitNewStory ran! congrats guys");
   evt.preventDefault();
 
+  const author = $('#create-author').val();
+  const title = $('#create-title').val();
+  const url = $('#create-url').val();
+
+  // we need to grab the user so that we can get the token
+  console.log("author", author);
+  console.log("title", title);
+  console.log("url", url);
+
+  // using the currentUser global variable from the user.js file
+  await storyList.addStory(currentUser, { title, author, url });
+
+  /* COMMENTED OUT BECAUSE THE FOLLOWING FAILS UNEXPECTEDLY
   const storyAuthor = $('#create-author').val();
   const storyTitle = $('#create-title').val();
   const storyURL = $('#create-url').val();
-  const userToken = localStorage.getItem("token");
 
-  console.log("storyAuthor", storyAuthor);
-  console.log("storyTitle", storyTitle);
-  console.log("storyURL", storyURL);
-  console.log("userToken", userToken);
-
-  storyList.addStory(userToken, {storyTitle, storyAuthor, storyURL});
+  await storyList.addStory(currentUser, { storyTitle, storyAuthor, storyURL })
+  */
 }
 
 $("#story-submit-button").on("click", submitNewStory);
