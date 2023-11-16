@@ -82,7 +82,7 @@ class StoryList {
    * Returns the new Story instance
    */
 
-  async addStory(user, {title, author, url} ) {
+  async addStory(user, { title, author, url }) {
 
     console.log("addStory called");
 
@@ -94,8 +94,8 @@ class StoryList {
         "content-type": "application/json",
         "mode": 'no-cors'
       },
-      body: JSON.stringify(userToken, {title, author, url}),
-    })
+      body: JSON.stringify({ token: userToken, story: { title, author, url } }),
+    });
 
     const storyData = await response.json();
     console.log("storyData from addstory", storyData);
