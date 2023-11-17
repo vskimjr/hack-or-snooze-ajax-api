@@ -79,6 +79,8 @@ async function submitNewStory(evt) {
 
   $allStoriesList.prepend($story);
 
+  //TODO: storylist is the canonical list of all the story. We should not do it on the DOM.
+
   /* COMMENTED OUT BECAUSE THE FOLLOWING FAILS UNEXPECTEDLY
   const storyAuthor = $('#create-author').val();
   const storyTitle = $('#create-title').val();
