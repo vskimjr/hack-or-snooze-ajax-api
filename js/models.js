@@ -252,20 +252,13 @@ class User {
     );
   }
 
+  /**
+   * Removes a story from the user's favorites and updates the API to remove the story
+   * from the server
+   *
+   */
+
   async removeFavorite(story) {
-
-    // await fetch URL/users/${username}/favorites/${storyId}
-    // specify delete
-    // add json header
-    // add token to the body as a string
-
-    // Implement the async call remove a story from User.favorites
-    //   method: "DELETE",
-    //   headers: {
-    //     "content-type": "application/json",
-    //   },
-    //   body: JSON.stringify({ token: userToken }),
-
 
     for (let i = 0; i < this.favorites.length; i++) {
       if (this.favorites[i].storyId === story.storyId) {
