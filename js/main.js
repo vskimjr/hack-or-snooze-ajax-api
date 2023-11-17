@@ -9,12 +9,12 @@ const $allStoriesList = $("#all-stories-list");
 
 const $loginForm = $("#login-form");
 const $signupForm = $("#signup-form");
-
 const $createForm = $("#create-form");
-// ?TODO: add $myFavorites
-// ?TODO: add $myStories
 
-const $navSubmitStory = $("#nav-submit-story")
+const $favoritedStories = $("#favorited-stories");
+const $myStories = $("#my-stories");
+
+const $navSubmitStory = $("#nav-submit-story");
 
 const $navLogin = $("#nav-login");
 const $navUserProfile = $("#nav-user-profile");
