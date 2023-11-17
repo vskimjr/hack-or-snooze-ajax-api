@@ -13,7 +13,8 @@ const $loginForm = $("#login-form");
 const $signupForm = $("#signup-form");
 const $createForm = $("#create-form");
 
-const $favoriteIcon = $(".bi");
+// FIXME: Not having anything populate
+// const $favoriteIcon = $(".bi");
 
 const $navSubmitStory = $("#nav-submit-story");
 const $navFavoritesLink = $("#nav-favorites");
