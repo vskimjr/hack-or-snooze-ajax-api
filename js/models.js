@@ -26,13 +26,12 @@ class Story {
 
   getHostName() {
 
+    // TODO: we want to return the actual host name
     // const parsedURL = new URL(this.url);
 
     console.log("this.url", this.url);
 
     return this.url;
-
-    // TODO: we want to return the actual host name
   }
 
   // Each story that we are going to create is going to be provided a URL as a
@@ -87,7 +86,6 @@ class StoryList {
    */
 
   async addStory(user, { title, author, url }) {
-
     console.log("addStory called");
 
     const userToken = user.loginToken;
@@ -101,18 +99,17 @@ class StoryList {
     });
 
     const storyData = await response.json();
-
     console.log("storyData from addstory", storyData);
 
     // Accesses the story key from the response object to pull newStory information
-
     const newStory = new Story(storyData.story);
-
     console.log("newStory", newStory);
 
-    return newStory;
-
     // TODO: we are not adding it to the story list. We are doing this elsewhere. Match the docstring
+    // add the story as index 0 to the storyList
+    this.stories.unshift(newStory);
+
+    return newStory;
   }
 }
 
