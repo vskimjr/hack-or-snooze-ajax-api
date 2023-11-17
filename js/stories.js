@@ -47,7 +47,9 @@ function putStoriesOnPage() {
 
   // loop through all of our stories and generate HTML for them
   for (let story of storyList.stories) {
+
     const $story = generateStoryMarkup(story);
+
 
     $allStoriesList.append($story);
   }
@@ -105,19 +107,33 @@ function putFavsOnPage() {
 
 
 function clickFavoriteIcon(evt) {
-  console.log(evt);
-  const $storyId = $("");
-  if (story.favoriteStatus === false) {
-    $favoriteIcon.removeClass("bi-star");
-    $favoriteIcon.addClass("bi-star-fill");
-    story.favoriteStatus = true;
-    currentUser.addFavorite(story);
-  } else {
-    $favoriteIcon.removeClass("bi-star-fill");
-    $favoriteIcon.addClass("bi-star");
-    story.favoriteStatus = false;
-    currentUser.removeFavorite(story);
-  }
+
+
+  console.log(evt.target.parentElement);
+  const $storyId = $(evt.target.parentElement);
+  console.log($storyId);
+  console.log(typeof $storyId);
+  console.log($storyId.attr("id"));
+  console.log(typeof $storyId.attr("id"));
+
+  
+
+  // if
+
+
+  // if (story.favoriteStatus === false) {
+  //   $favoriteIcon.removeClass("bi-star");
+  //   $favoriteIcon.addClass("bi-star-fill");
+  //   story.favoriteStatus = true;
+  //   currentUser.addFavorite(storyId);
+  // } else {
+  //   $favoriteIcon.removeClass("bi-star-fill");
+  //   $favoriteIcon.addClass("bi-star");
+  //   story.favoriteStatus = false;
+  //   currentUser.removeFavorite(storyId);
+  // }
 }
+
+
 
 $allStoriesList.on("click", ".bi", clickFavoriteIcon);
