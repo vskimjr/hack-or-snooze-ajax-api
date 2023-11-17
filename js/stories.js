@@ -52,8 +52,12 @@ function putStoriesOnPage() {
   $allStoriesList.show();
 }
 
-// TODO: Handle the submit button in the submit story form
-
+/**
+ * submitNewStory() takes the submit form values, passes it into addStory() to create
+ * a newStory.
+ * newStory is used to create a new HTML markup $story
+ * $story is prepended to $allStoriesList in the DOM
+ */
 
 async function submitNewStory(evt) {
   console.log("submitNewStory ran! congrats guys");
@@ -69,11 +73,11 @@ async function submitNewStory(evt) {
   console.log("url", url);
 
   // using the currentUser global variable from the user.js file
-  await storyList.addStory(currentUser, { title, author, url });
+  const newStory = await storyList.addStory(currentUser, { title, author, url });
+  console.log("newStory", newStory);
+  const $story = generateStoryMarkup(newStory);
 
-  // TODO: put that new story on the page
-  // need to generateStoryMarkup()
-  // need to add to
+  $allStoriesList.prepend($story);
 
   /* COMMENTED OUT BECAUSE THE FOLLOWING FAILS UNEXPECTEDLY
   const storyAuthor = $('#create-author').val();

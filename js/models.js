@@ -26,9 +26,11 @@ class Story {
 
   getHostName() {
 
-    const parsedURL = new URL(this.url);
+    // const parsedURL = new URL(this.url);
 
-    return parsedURL;
+    console.log("this.url", this.url);
+
+    return this.url;
   }
 
   // Each story that we are going to create is going to be provided a URL as a
@@ -98,10 +100,14 @@ class StoryList {
     });
 
     const storyData = await response.json();
-    // TODO: make sure extra stuff in storyData doesn't affect us
+
     console.log("storyData from addstory", storyData);
 
-    const newStory = new Story(storyData);
+    // Accesses the story key from the response object to pull newStory information
+
+    const newStory = new Story(storyData.story);
+
+    console.log("newStory", newStory);
 
     return newStory;
   }
