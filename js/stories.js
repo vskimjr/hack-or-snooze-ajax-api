@@ -78,16 +78,24 @@ async function submitNewStory(evt) {
   const $story = generateStoryMarkup(newStory);
 
   $allStoriesList.prepend($story);
-
-  //TODO: storylist is the canonical list of all the story. We should not do it on the DOM.
-
-  /* COMMENTED OUT BECAUSE THE FOLLOWING FAILS UNEXPECTEDLY
-  const storyAuthor = $('#create-author').val();
-  const storyTitle = $('#create-title').val();
-  const storyURL = $('#create-url').val();
-
-  await storyList.addStory(currentUser, { storyTitle, storyAuthor, storyURL })
-  */
 }
 
 $("#story-submit-button").on("click", submitNewStory);
+
+// TODO: copy the functionality of putStoriesOnPage for just the user favorites
+
+/** Gets list of stories from server, generates their HTML, and puts on page. */
+
+// function putStoriesOnPage() {
+//   console.debug("putStoriesOnPage");
+
+//   $allStoriesList.empty();
+
+//   // loop through all of our stories and generate HTML for them
+//   for (let story of storyList.stories) {
+//     const $story = generateStoryMarkup(story);
+//     $allStoriesList.append($story);
+//   }
+
+//   $allStoriesList.show();
+// }
