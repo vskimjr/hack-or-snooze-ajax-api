@@ -13,6 +13,7 @@ const $loginForm = $("#login-form");
 const $signupForm = $("#signup-form");
 const $createForm = $("#create-form");
 
+const $favoriteIcon = $(".bi");
 
 const $navSubmitStory = $("#nav-submit-story");
 const $navFavoritesLink = $("#nav-favorites");
@@ -20,6 +21,8 @@ const $navFavoritesLink = $("#nav-favorites");
 const $navLogin = $("#nav-login");
 const $navUserProfile = $("#nav-user-profile");
 const $navLogOut = $("#nav-logout");
+
+
 
 
 /** To make it easier for individual components to show just themselves, this
