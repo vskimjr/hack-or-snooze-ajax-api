@@ -31,6 +31,8 @@ class Story {
     console.log("this.url", this.url);
 
     return this.url;
+
+    // TODO: we want to return the actual host name
   }
 
   // Each story that we are going to create is going to be provided a URL as a
@@ -94,7 +96,6 @@ class StoryList {
       method: "POST",
       headers: {
         "content-type": "application/json",
-        "mode": 'no-cors'
       },
       body: JSON.stringify({ token: userToken, story: { title, author, url } }),
     });
@@ -110,6 +111,8 @@ class StoryList {
     console.log("newStory", newStory);
 
     return newStory;
+
+    // TODO: we are not adding it to the story list. We are doing this elsewhere. Match the docstring
   }
 }
 
