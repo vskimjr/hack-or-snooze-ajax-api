@@ -231,6 +231,11 @@ class User {
     }
   }
 
+  /**
+   * Add a story to the users favorites and updates the API to add the story to
+   * the server
+   *  - story: a Story instance object
+   */
 
   async addFavorite(story) {
     this.favorites.push(story);
@@ -242,16 +247,25 @@ class User {
     // add appropriate headers to get json
     // add token to the body as a string
 
+    // TODO: Implement the async call to POST a story to the User.favorites
+    //   method: "POST",
+    //   headers: {
+    //     "content-type": "application/json",
+    //   },
+    //   body: JSON.stringify({ token: userToken, story: { title, author, url } }),
+    // });
 
-  //   method: "POST",
-  //   headers: {
-  //     "content-type": "application/json",
-  //   },
-  //   body: JSON.stringify({ token: userToken, story: { title, author, url } }),
-  // });
+    const token = this.loginToken;
 
-
-    await fetch()
+    await fetch(`${BASE_URL}/users/${this.username}/favorites/${story.storyId}`,
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json"
+        },
+        body: JSON.stringify({ token })
+      }
+    );
 
 
   }
@@ -263,8 +277,12 @@ class User {
     // add json header
     // add token to the body as a string
 
-
-
+    // Implement the async call remove a story from User.favorites
+    //   method: "DELETE",
+    //   headers: {
+    //     "content-type": "application/json",
+    //   },
+    //   body: JSON.stringify({ token: userToken }),
 
 
 
