@@ -36,11 +36,19 @@ $navSubmitStory.on("click", showSubmitFormOnNavLinkClick);
 
 
 
-// TODO: Handle the submit button in the submit story form
 
 // TODO: handle favorites link click
 // create the function
 // add the event listener
+
+function showFavoritesOnNavClick(evt) {
+  console.log("showFavoritesOnClick called", evt);
+  evt.preventDefault();
+  // FIXME: maybe not needed because of putFavsOnPage()
+  $favoritedStories.show();
+}
+
+$navFavoritesLink.on("click", showFavoritesOnNavClick);
 
 // TODO: handle my stories link click
 // create the function
