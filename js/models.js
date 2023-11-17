@@ -243,12 +243,12 @@ class User {
     // add token to the body as a string
 
 
-    method: "POST",
-    headers: {
-      "content-type": "application/json",
-    },
-    body: JSON.stringify({ token: userToken, story: { title, author, url } }),
-  });
+  //   method: "POST",
+  //   headers: {
+  //     "content-type": "application/json",
+  //   },
+  //   body: JSON.stringify({ token: userToken, story: { title, author, url } }),
+  // });
 
 
     await fetch()
