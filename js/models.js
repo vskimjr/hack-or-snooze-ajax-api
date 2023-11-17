@@ -250,11 +250,9 @@ class User {
         body: JSON.stringify({ token })
       }
     );
-
-
   }
 
-  removeFavorite(story) {
+  async removeFavorite(story) {
 
     // await fetch URL/users/${username}/favorites/${storyId}
     // specify delete
@@ -269,18 +267,20 @@ class User {
     //   body: JSON.stringify({ token: userToken }),
 
 
-
     for (let i = 0; i < this.favorites.length; i++) {
       if (this.favorites[i].storyId === story.storyId) {
         this.favorites.splice(i, 1);
       }
     }
 
+    await fetch(`${BASE_URL}/users/${this.username}/favorites/${story.storyId}`,
+      {
+        method: "DELETE",
+        headers: {
+          "content-type": "application/json"
+        },
+        body: JSON.stringify({ token })
+      }
+    );
   }
-
 }
-// TODO: Add 2 methods to User class
-// -- letting the user 1. favorite or 2. un-favorite a story
-// will need to take a Story instance
-// They should also send a request to the API so the server knows when a
-// favorite/un-favorite action occurs.
