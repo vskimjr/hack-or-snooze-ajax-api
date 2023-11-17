@@ -23,6 +23,7 @@ function generateStoryMarkup(story) {
   // console.debug("generateStoryMarkup", story);
 
   const hostName = story.getHostName();
+  // TODO: possibly do this in models.js
   story.favoriteStatus = false;
   return $(`
       <li id="${story.storyId}">
@@ -37,27 +38,6 @@ function generateStoryMarkup(story) {
     `);
 }
 
-
-function clickFavoriteIcon(story){
-  if (story.favoriteStatus === false){
-    $favoriteIcon.removeClass("bi-star");
-    $favoriteIcon.addClass("bi-star-fill");
-    story.favoriteStatus = true;
-    currentUser.addFavorite(story);
-  } else {
-    $favoriteIcon.removeClass("bi-star-fill");
-    $favoriteIcon.addClass("bi-star");
-    story.favoriteStatus = false;
-    currentUser.removeFavorite(story);
-  }
-}
-
-
-
-
-
-
-
 /** Gets list of stories from server, generates their HTML, and puts on page. */
 
 function putStoriesOnPage() {
@@ -68,6 +48,7 @@ function putStoriesOnPage() {
   // loop through all of our stories and generate HTML for them
   for (let story of storyList.stories) {
     const $story = generateStoryMarkup(story);
+
     $allStoriesList.append($story);
   }
 
@@ -82,7 +63,7 @@ function putStoriesOnPage() {
  */
 
 async function submitNewStory(evt) {
-  console.log("submitNewStory ran! congrats guys");
+  console.debug("submitNewStory ran! congrats guys");
   evt.preventDefault();
 
   const author = $('#create-author').val();
@@ -123,3 +104,20 @@ function putFavsOnPage() {
 }
 
 
+function clickFavoriteIcon(evt) {
+  console.log(evt);
+  const $storyId = $("");
+  if (story.favoriteStatus === false) {
+    $favoriteIcon.removeClass("bi-star");
+    $favoriteIcon.addClass("bi-star-fill");
+    story.favoriteStatus = true;
+    currentUser.addFavorite(story);
+  } else {
+    $favoriteIcon.removeClass("bi-star-fill");
+    $favoriteIcon.addClass("bi-star");
+    story.favoriteStatus = false;
+    currentUser.removeFavorite(story);
+  }
+}
+
+$allStoriesList.on("click", ".bi", clickFavoriteIcon);
