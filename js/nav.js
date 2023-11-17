@@ -32,7 +32,7 @@ function showSubmitFormOnNavLinkClick(evt) {
   $submitForm.show();
 }
 
-$("#nav-submit-story").on("click", showSubmitFormOnNavLinkClick);
+$navSubmitStory.on("click", showSubmitFormOnNavLinkClick);
 
 
 
