@@ -266,6 +266,8 @@ class User {
       }
     }
 
+    const token = currentUser.token;
+
     await fetch(`${BASE_URL}/users/${this.username}/favorites/${story.storyId}`,
       {
         method: "DELETE",
