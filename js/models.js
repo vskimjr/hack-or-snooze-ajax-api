@@ -25,13 +25,9 @@ class Story {
   /** Parses hostname out of URL and returns it. */
 
   getHostName() {
+    const parsedURL = new URL(this.url);
 
-    // TODO: we want to return the actual host name
-    // const parsedURL = new URL(this.url);
-
-    console.log("this.url", this.url);
-
-    return this.url;
+    return parsedURL.host;
   }
 
   // Each story that we are going to create is going to be provided a URL as a
@@ -105,8 +101,6 @@ class StoryList {
     const newStory = new Story(storyData.story);
     console.log("newStory", newStory);
 
-    // TODO: we are not adding it to the story list. We are doing this elsewhere. Match the docstring
-    // add the story as index 0 to the storyList
     this.stories.unshift(newStory);
 
     return newStory;
@@ -145,7 +139,6 @@ class User {
     this.loginToken = token;
   }
 
-  // TODO:
   /** Register new user in API, make User instance & return it.
    *
    * - username: a new username
