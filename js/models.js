@@ -259,7 +259,7 @@ class User {
    */
 
   async removeFavorite(story) {
-
+    // TODO: potential use of the .filter() method on the this.favorites array
     for (let i = 0; i < this.favorites.length; i++) {
       if (this.favorites[i].storyId === story.storyId) {
         this.favorites.splice(i, 1);

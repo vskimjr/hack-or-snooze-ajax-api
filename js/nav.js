@@ -37,13 +37,6 @@ function showSubmitFormOnNavLinkClick(evt) {
 
 $navSubmitStory.on("click", showSubmitFormOnNavLinkClick);
 
-
-
-
-// TODO: dosctring herehandle favorites link click
-// create the function
-// add the event listener
-
 /**
  * Show the favorites list on page and hide all other on screen elements
  */

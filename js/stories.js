@@ -86,7 +86,6 @@ $("#story-submit-button").on("click", submitNewStory);
  * Generate the HTML for each favorited story and show only favorites list on page
  */
 
-
 function putFavsOnPage() {
   console.log("putFavsOnPage run");
   $allStoriesList.hide();
