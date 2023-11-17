@@ -238,24 +238,8 @@ class User {
    */
 
   async addFavorite(story) {
-    this.favorites.push(story);
-
-    // we're interacting with the server to say "here is a new favorite"
-    // post to the server a new favorite
-    // await fetch URL/users/${username}/favorites/${storyId}
-    // specify post method
-    // add appropriate headers to get json
-    // add token to the body as a string
-
-    // TODO: Implement the async call to POST a story to the User.favorites
-    //   method: "POST",
-    //   headers: {
-    //     "content-type": "application/json",
-    //   },
-    //   body: JSON.stringify({ token: userToken, story: { title, author, url } }),
-    // });
-
     const token = this.loginToken;
+    this.favorites.push(story);
 
     await fetch(`${BASE_URL}/users/${this.username}/favorites/${story.storyId}`,
       {
