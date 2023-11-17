@@ -82,7 +82,10 @@ async function submitNewStory(evt) {
 
 $("#story-submit-button").on("click", submitNewStory);
 
-// TODO: copy the functionality of putStoriesOnPage for just the user favorites
+/**
+ * Generate the HTML for each favorited story and show only favorites list on page
+ */
+
 
 function putFavsOnPage() {
   console.log("putFavsOnPage run");
@@ -97,7 +100,5 @@ function putFavsOnPage() {
 
   $favoritedStoriesList.show();
 }
-
-/** Gets list of stories from server, generates their HTML, and puts on page. */
 
 
