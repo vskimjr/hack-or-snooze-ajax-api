@@ -29,7 +29,7 @@ $body.on("click", "#nav-all", navAllStories);
 function showSubmitFormOnNavLinkClick(evt) {
   console.log("showSubmitFormOnNavLinkClick called", evt);
   evt.preventDefault();
-  $submitForm.show();
+  $createForm.show();
 }
 
 $navSubmitStory.on("click", showSubmitFormOnNavLinkClick);
