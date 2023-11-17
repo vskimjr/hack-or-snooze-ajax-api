@@ -231,10 +231,54 @@ class User {
     }
   }
 
-  // TODO: Add 2 methods to User class
-  // -- letting the user 1. favorite or 2. un-favorite a story
-  // will need to take a Story instance
-  // They should also send a request to the API so the server knows when a
-  // favorite/un-favorite action occurs.
+
+  async addFavorite(story) {
+    this.favorites.push(story);
+
+    // we're interacting with the server to say "here is a new favorite"
+    // post to the server a new favorite
+    // await fetch URL/users/${username}/favorites/${storyId}
+    // specify post method
+    // add appropriate headers to get json
+    // add token to the body as a string
+
+
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+    },
+    body: JSON.stringify({ token: userToken, story: { title, author, url } }),
+  });
+
+
+    await fetch()
+
+
+  }
+
+  removeFavorite(story) {
+
+    // await fetch URL/users/${username}/favorites/${storyId}
+    // specify delete
+    // add json header
+    // add token to the body as a string
+
+
+
+
+
+
+    for (let i = 0; i < this.favorites.length; i++) {
+      if (this.favorites[i].storyId === story.storyId) {
+        this.favorites.splice(i, 1);
+      }
+    }
+
+  }
 
 }
+// TODO: Add 2 methods to User class
+// -- letting the user 1. favorite or 2. un-favorite a story
+// will need to take a Story instance
+// They should also send a request to the API so the server knows when a
+// favorite/un-favorite action occurs.
