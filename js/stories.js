@@ -23,8 +23,10 @@ function generateStoryMarkup(story) {
   // console.debug("generateStoryMarkup", story);
 
   const hostName = story.getHostName();
+  story.favoriteStatus = false;
   return $(`
       <li id="${story.storyId}">
+      <i class="bi bi-star" data-favorite-status=${story.favoriteStatus}></i>
         <a href="${story.url}" target="a_blank" class="story-link">
           ${story.title}
         </a>
@@ -34,6 +36,26 @@ function generateStoryMarkup(story) {
       </li>
     `);
 }
+
+
+function clickFavoriteIcon(story){
+  if (story.favoriteStatus === false){
+    $favoriteIcon.removeClass("bi-star");
+    $favoriteIcon.addClass("bi-star-fill");
+    story.favoriteStatus = true;
+    currentUser.addFavorite(story);
+  } else {
+    $favoriteIcon.removeClass("bi-star-fill");
+    $favoriteIcon.addClass("bi-star");
+    story.favoriteStatus = false;
+    currentUser.removeFavorite(story);
+  }
+}
+
+
+
+
+
 
 
 /** Gets list of stories from server, generates their HTML, and puts on page. */
