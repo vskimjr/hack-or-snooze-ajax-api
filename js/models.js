@@ -230,4 +230,11 @@ class User {
       return null;
     }
   }
+
+  // TODO: Add 2 methods to User class
+  // -- letting the user 1. favorite or 2. un-favorite a story
+  // will need to take a Story instance
+  // They should also send a request to the API so the server knows when a
+  // favorite/un-favorite action occurs.
+
 }
