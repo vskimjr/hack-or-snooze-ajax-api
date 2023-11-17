@@ -29,7 +29,10 @@ $body.on("click", "#nav-all", navAllStories);
 function showSubmitFormOnNavLinkClick(evt) {
   console.log("showSubmitFormOnNavLinkClick called", evt);
   evt.preventDefault();
+  hidePageComponents();
   $createForm.show();
+  putStoriesOnPage();
+
 }
 
 $navSubmitStory.on("click", showSubmitFormOnNavLinkClick);
@@ -44,8 +47,7 @@ $navSubmitStory.on("click", showSubmitFormOnNavLinkClick);
 function showFavoritesOnNavClick(evt) {
   console.log("showFavoritesOnClick called", evt);
   evt.preventDefault();
-  // FIXME: maybe not needed because of putFavsOnPage()
-  $favoritedStories.show();
+  putFavsOnPage();
 }
 
 $navFavoritesLink.on("click", showFavoritesOnNavClick);

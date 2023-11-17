@@ -84,18 +84,20 @@ $("#story-submit-button").on("click", submitNewStory);
 
 // TODO: copy the functionality of putStoriesOnPage for just the user favorites
 
+function putFavsOnPage() {
+  console.log ("putFavsOnPage run");
+  $allStoriesList.hide();
+  $favoritedStories.empty();
+
+  for (let favStory of currentUser.favorites){
+    const $favStory = generateStoryMarkup(favStory);
+    $favoritedStories.append($favStory);
+  }
+
+
+  $favoritedStories.show();
+}
+
 /** Gets list of stories from server, generates their HTML, and puts on page. */
 
-// function putStoriesOnPage() {
-//   console.debug("putStoriesOnPage");
 
-//   $allStoriesList.empty();
-
-//   // loop through all of our stories and generate HTML for them
-//   for (let story of storyList.stories) {
-//     const $story = generateStoryMarkup(story);
-//     $allStoriesList.append($story);
-//   }
-
-//   $allStoriesList.show();
-// }
