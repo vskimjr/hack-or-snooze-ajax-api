@@ -40,13 +40,18 @@ $navSubmitStory.on("click", showSubmitFormOnNavLinkClick);
 
 
 
-// TODO: handle favorites link click
+// TODO: dosctring herehandle favorites link click
 // create the function
 // add the event listener
+
+/**
+ * Show the favorites list on page and hide all other on screen elements
+ */
 
 function showFavoritesOnNavClick(evt) {
   console.log("showFavoritesOnClick called", evt);
   evt.preventDefault();
+  hidePageComponents();
   putFavsOnPage();
 }
 
