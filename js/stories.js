@@ -23,11 +23,9 @@ function generateStoryMarkup(story) {
   // console.debug("generateStoryMarkup", story);
 
   const hostName = story.getHostName();
-  // TODO: possibly do this in models.js
-  story.favoriteStatus = false;
   return $(`
       <li id="${story.storyId}">
-      <i class="bi bi-star" data-favorite-status=${story.favoriteStatus}></i>
+      <i class="bi bi-star"></i>
         <a href="${story.url}" target="a_blank" class="story-link">
           ${story.title}
         </a>
@@ -106,19 +104,34 @@ function putFavsOnPage() {
 }
 
 
-function clickFavoriteIcon(evt) {
+async function clickFavoriteIcon(evt) {
 
+  const $target = $(evt.target);
+  console.log($target, "evt.target as jQuery");
 
   console.log(evt.target.parentElement);
-  const $storyId = $(evt.target.parentElement);
-  console.log($storyId);
-  console.log(typeof $storyId);
-  console.log($storyId.attr("id"));
-  console.log(typeof $storyId.attr("id"));
+  const $evtTargetParentElement = $(evt.target.parentElement);
+  console.log($evtTargetParentElement, "jQuery Object");
+  console.log(typeof $evtTargetParentElement);
 
-  
 
-  // if
+  const storyId = $evtTargetParentElement.attr("id");
+  console.log(storyId);
+  console.log(typeof storyId);
+
+  // TODO: Get story by id
+  // which we then pass to the .addFavorite and the .removeFavorite
+  const story = await Story.getStoryById(storyId);
+
+  if ($target.hasClass("bi-star")) {
+    $target.removeClass("bi-star");
+    $target.addClass("bi-star-fill");
+    await currentUser.addFavorite(story);
+  } else {
+    $target.removeClass("bi-star-fill");
+    $target.addClass("bi-star");
+    await currentUser.removeFavorite(story);
+  }
 
 
   // if (story.favoriteStatus === false) {
