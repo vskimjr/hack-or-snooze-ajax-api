@@ -30,6 +30,21 @@ class Story {
     return parsedURL.host;
   }
 
+  // TODO: add a static method to the Story class to get an arbitrary story by ID
+
+  static async getStoryById(storyId) {
+    const response = await fetch(`${BASE_URL}/stories/${storyId}`, {
+      method: "GET"
+    });
+
+    const storyObj = await response.json();
+    const story = storyObj.story;
+
+    console.log(new Story(story));
+    return new Story(story);
+
+  }
+
   // Each story that we are going to create is going to be provided a URL as a
   // JSON object so that when it grabs the link it sends you to the right place
 
