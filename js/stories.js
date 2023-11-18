@@ -20,12 +20,20 @@ async function getAndShowStoriesOnStart() {
  */
 
 function generateStoryMarkup(story) {
-  // console.debug("generateStoryMarkup", story);
+  console.debug("generateStoryMarkup", story);
 
+  // TODO: Check if the story.storyId is already favorited
+  //  if so, give a filled star
+  //  else, give it a empty star
+
+  // const $starStatus = $("<i>", { class: "bi" });
   const hostName = story.getHostName();
-  return $(`
+
+  for (let favStory of currentUser.favorites) {
+    if (story.storyId === favStory.storyId) {
+      return $(`
       <li id="${story.storyId}">
-      <i class="bi bi-star"></i>
+      <i class= "bi bi-star-fill">
         <a href="${story.url}" target="a_blank" class="story-link">
           ${story.title}
         </a>
@@ -34,6 +42,32 @@ function generateStoryMarkup(story) {
         <small class="story-user">posted by ${story.username}</small>
       </li>
     `);
+    } else {
+      return $(`
+      <li id="${story.storyId}">
+      <i class= "bi bi-star">
+        <a href="${story.url}" target="a_blank" class="story-link">
+          ${story.title}
+        </a>
+        <small class="story-hostname">(${hostName})</small>
+        <small class="story-author">by ${story.author}</small>
+        <small class="story-user">posted by ${story.username}</small>
+      </li>
+    `);;
+    }
+  }
+
+  // return $(`
+  //     <li id="${story.storyId}">
+  //     ${$starStatus}
+  //       <a href="${story.url}" target="a_blank" class="story-link">
+  //         ${story.title}
+  //       </a>
+  //       <small class="story-hostname">(${hostName})</small>
+  //       <small class="story-author">by ${story.author}</small>
+  //       <small class="story-user">posted by ${story.username}</small>
+  //     </li>
+  //   `);
 }
 
 /** Gets list of stories from server, generates their HTML, and puts on page. */
@@ -96,6 +130,7 @@ function putFavsOnPage() {
 
   for (let favStory of currentUser.favorites) {
     const $favStory = generateStoryMarkup(favStory);
+    // TODO: check if
     $favoritedStoriesList.append($favStory);
   }
 
