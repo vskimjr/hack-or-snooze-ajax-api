@@ -29,37 +29,64 @@ function generateStoryMarkup(story) {
   // const $starStatus = $("<i>", { class: "bi" });
   const hostName = story.getHostName();
 
-  for (let favStory of currentUser.favorites) {
-    if (story.storyId === favStory.storyId) {
-      return $(`
-      <li id="${story.storyId}">
-      <i class= "bi bi-star-fill">
-        <a href="${story.url}" target="a_blank" class="story-link">
-          ${story.title}
-        </a>
-        <small class="story-hostname">(${hostName})</small>
-        <small class="story-author">by ${story.author}</small>
-        <small class="story-user">posted by ${story.username}</small>
-      </li>
-    `);
-    } else {
-      return $(`
-      <li id="${story.storyId}">
-      <i class= "bi bi-star">
-        <a href="${story.url}" target="a_blank" class="story-link">
-          ${story.title}
-        </a>
-        <small class="story-hostname">(${hostName})</small>
-        <small class="story-author">by ${story.author}</small>
-        <small class="story-user">posted by ${story.username}</small>
-      </li>
-    `);;
-    }
-  }
+  return $(`
+  <li id="${story.storyId}">
+  <i class= "bi bi-star">
+    <a href="${story.url}" target="a_blank" class="story-link">
+      ${story.title}
+    </a>
+    <small class="story-hostname">(${hostName})</small>
+    <small class="story-author">by ${story.author}</small>
+    <small class="story-user">posted by ${story.username}</small>
+  </li>
+`);
+
+  // currentUser.favorites.map(function(){
+  //   return $(`
+  //   <li id="${story.storyId}">
+  //   <i class= "bi bi-star-fill">
+  //     <a href="${story.url}" target="a_blank" class="story-link">
+  //       ${story.title}
+  //     </a>
+  //     <small class="story-hostname">(${hostName})</small>
+  //     <small class="story-author">by ${story.author}</small>
+  //     <small class="story-user">posted by ${story.username}</small>
+  //   </li>
+  // `);
+  // });
+
+  // // for (let favStory of currentUser.favorites) {
+
+  //   if (story.storyId === favStory.storyId) {
+  //     return $(`
+  //     <li id="${story.storyId}">
+  //     <i class= "bi bi-star-fill">
+  //       <a href="${story.url}" target="a_blank" class="story-link">
+  //         ${story.title}
+  //       </a>
+  //       <small class="story-hostname">(${hostName})</small>
+  //       <small class="story-author">by ${story.author}</small>
+  //       <small class="story-user">posted by ${story.username}</small>
+  //     </li>
+  //   `);
+  //   } else {
+  //     return $(`
+  //     <li id="${story.storyId}">
+  //     <i class= "bi bi-star">
+  //       <a href="${story.url}" target="a_blank" class="story-link">
+  //         ${story.title}
+  //       </a>
+  //       <small class="story-hostname">(${hostName})</small>
+  //       <small class="story-author">by ${story.author}</small>
+  //       <small class="story-user">posted by ${story.username}</small>
+  //     </li>
+  //   `);;
+  //   }
+  // }
 
   // return $(`
   //     <li id="${story.storyId}">
-  //     ${$starStatus}
+  //     <i class= "bi bi-star">
   //       <a href="${story.url}" target="a_blank" class="story-link">
   //         ${story.title}
   //       </a>
